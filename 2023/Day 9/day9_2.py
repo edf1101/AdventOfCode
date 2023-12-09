@@ -16,23 +16,17 @@ def calc_diff(list_inp):
 
 
 for idx,history in enumerate(histories):
-    # if idx != 2:
-    #     continue
-    print('\n')
-
     history = [int(i) for i in history.split()]
     hierarchy = [history]
 
     while hierarchy[-1] != [0] * len(hierarchy[-1]):
         hierarchy.append(calc_diff(hierarchy[-1]))
-    print(hierarchy)
 
     hierarchy[-1].append(0)
     for i in range(len(hierarchy) - 1, 0, -1):
         i = i - 1
         hierarchy[i].insert(0,hierarchy[i][0] - hierarchy[i + 1][0])
     sum += (hierarchy[0][0])
-    print(hierarchy)
 
 
 print(sum)
